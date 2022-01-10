@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">StopSugar</string>
+    <string name="accueil_bottom_menu_navigation">Accueil</string>
+    <string name="scan_bottom_menu_navigation">Scan</string>
+    <string name="recettes_bottom_menu_navigation">Recettes</string>
+    <string name="infos_bottom_menu_navigation">Infos</string>
+    <string name="amis_bottom_menu_navigation">Amis</string>
+    <string name="logo_content_description">logo</string>
 </resources>
