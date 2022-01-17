@@ -6,4 +6,7 @@
     <string name="infos_bottom_menu_navigation">Infos</string>
     <string name="amis_bottom_menu_navigation">Amis</string>
     <string name="logo_content_description">logo</string>
+    <string name="menu_title">Bienvenue dans Stop Sugar</string>
+    <string name="register_button_text">S\'inscrire</string>
+    <string name="login_button_text">Se connecter</string>
 </resources>
