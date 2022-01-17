@@ -7,6 +7,7 @@
     tools:context=".activities.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="411dp"
         android:layout_height="50dp"
         android:orientation="horizontal"
@@ -16,59 +17,63 @@
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/inscription_1"
             android:layout_width="33dp"
             android:layout_height="39dp"
             android:layout_weight="1"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView7"
+            app:layout_constraintEnd_toStartOf="@+id/inscription_2"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView12"
+            app:layout_constraintStart_toEndOf="@+id/step_before"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/tiret" />
+            app:srcCompat="@drawable/tiret"
+            tools:ignore="ImageContrastCheck" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/inscription_2"
             android:layout_width="33dp"
             android:layout_height="39dp"
             android:layout_weight="1"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView8"
+            app:layout_constraintEnd_toStartOf="@+id/inscription_3"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintStart_toEndOf="@+id/inscription_1"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/tiret" />
+            app:srcCompat="@drawable/tiret"
+            tools:ignore="ImageContrastCheck" />
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/inscription_3"
             android:layout_width="33dp"
             android:layout_height="39dp"
             android:layout_weight="1"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView9"
+            app:layout_constraintEnd_toStartOf="@+id/inscription_4"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintStart_toEndOf="@+id/inscription_2"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/tiret" />
+            app:srcCompat="@drawable/tiret"
+            tools:ignore="ImageContrastCheck" />
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/inscription_4"
             android:layout_width="33dp"
             android:layout_height="39dp"
             android:layout_weight="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView8"
+            app:layout_constraintStart_toEndOf="@+id/inscription_3"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/tiret" />
+            app:srcCompat="@drawable/tiret"
+            tools:ignore="ImageContrastCheck" />
 
         <ImageView
-            android:id="@+id/imageView12"
+            android:id="@+id/step_before"
             android:layout_width="38dp"
             android:layout_height="39dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView6"
+            app:layout_constraintEnd_toStartOf="@+id/inscription_1"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -113,7 +118,8 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
     </FrameLayout>
 
