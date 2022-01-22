@@ -3,10 +3,13 @@ package com.example.stopsugar.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.stopsugar.FragmentChangeListener;
 import com.example.stopsugar.R;
 import com.example.stopsugar.fragments.FriendsFragment;
 import com.example.stopsugar.fragments.HomeFragment;
@@ -16,7 +19,7 @@ import com.example.stopsugar.fragments.ScanFragment;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener, FragmentChangeListener {
 
     private MaterialToolbar materialToolbar;
     private NavigationBarView navigationBarView;
@@ -78,5 +81,10 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
 
     private void switchFragment(Fragment fragment) {
         this.getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in, R.anim.fade_out).replace(R.id.frame_container, fragment).commit();
+    }
+
+    @Override
+    public void replaceFragment(Fragment fragment) {
+        switchFragment(fragment);
     }
 }
