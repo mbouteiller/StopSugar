@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
+    <include
+        android:id="@+id/appBarLayout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        layout="@layout/app_bar"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="411dp"
@@ -14,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
 
         <ImageView
             android:id="@+id/inscription_1"
@@ -27,6 +34,7 @@
             app:layout_constraintStart_toEndOf="@+id/step_before"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/tiret"
+            app:tint="@color/black"
             tools:ignore="ImageContrastCheck" />
 
         <ImageView
@@ -40,6 +48,7 @@
             app:layout_constraintStart_toEndOf="@+id/inscription_1"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/tiret"
+            app:tint="@color/black"
             tools:ignore="ImageContrastCheck" />
 
         <ImageView
@@ -53,6 +62,7 @@
             app:layout_constraintStart_toEndOf="@+id/inscription_2"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/tiret"
+            app:tint="@color/black"
             tools:ignore="ImageContrastCheck" />
 
         <ImageView
@@ -66,6 +76,7 @@
             app:layout_constraintStart_toEndOf="@+id/inscription_3"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/tiret"
+            app:tint="@color/black"
             tools:ignore="ImageContrastCheck" />
 
         <ImageView
@@ -81,46 +92,28 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="72dp"
-                android:layout_height="74dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:contentDescription="@string/logo_content_description"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo_sucre" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </com.google.android.material.appbar.AppBarLayout>
-
     <FrameLayout
         android:id="@+id/frame_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/next_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout">
 
     </FrameLayout>
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="@string/boutton_suivant"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
