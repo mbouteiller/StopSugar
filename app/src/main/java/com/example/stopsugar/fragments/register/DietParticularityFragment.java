@@ -1,5 +1,6 @@
 package com.example.stopsugar.fragments.register;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,9 +73,9 @@ public class DietParticularityFragment extends Fragment {
     private void changeColor() {
         for (int i = 0; i < dietParticularities.length; i++) {
             if (dietParticularities[i]) {
-                dietParticularitiesViews[i].setColorFilter(R.color.highlight);
+                dietParticularitiesViews[i].setColorFilter(Color.GREEN);
             } else {
-                dietParticularitiesViews[i].setColorFilter(R.color.black);
+                dietParticularitiesViews[i].setColorFilter(Color.BLACK);
             }
         }
     }

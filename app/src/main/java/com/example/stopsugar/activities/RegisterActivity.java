@@ -13,7 +13,6 @@ import com.example.stopsugar.R;
 import com.example.stopsugar.fragments.register.CookingToolsFragment;
 import com.example.stopsugar.fragments.register.DietParticularityFragment;
 import com.example.stopsugar.fragments.register.GoalFragment;
-import com.example.stopsugar.fragments.register.PreferencesFragment;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -21,10 +20,9 @@ public class RegisterActivity extends AppCompatActivity {
     ImageView[] imageviews = new ImageView[4];
 
     //Fragments
-    Fragment[] fragments = new Fragment[4];
+    Fragment[] fragments = new Fragment[3];
     GoalFragment goalFragment = new GoalFragment();
     DietParticularityFragment dietParticularityFragment = new DietParticularityFragment();
-    PreferencesFragment preferencesFragment = new PreferencesFragment();
     CookingToolsFragment cookingToolsFragment = new CookingToolsFragment();
 
     int currentFragment = 0;
@@ -35,8 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         fragments[0] = goalFragment;
         fragments[1] = dietParticularityFragment;
-        fragments[2] = preferencesFragment;
-        fragments[3] = cookingToolsFragment;
+        fragments[2] = cookingToolsFragment;
         switchFragment(goalFragment);
 
         findViewById(R.id.step_before).setOnClickListener(view -> switchPreviousFragment());
@@ -44,7 +41,6 @@ public class RegisterActivity extends AppCompatActivity {
         imageviews[0] = findViewById(R.id.inscription_1);
         imageviews[1] = findViewById(R.id.inscription_2);
         imageviews[2] = findViewById(R.id.inscription_3);
-        imageviews[3] = findViewById(R.id.inscription_4);
         changeActiveProgression(currentFragment);
 
         Button nextButton = findViewById(R.id.next_button);
@@ -67,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void switchNextFragment() {
         changeInactiveProgression(currentFragment);
         currentFragment++;
-        if (currentFragment == 4) {
+        if (currentFragment == fragments.length) {
             changeActivity(MainActivity.class);
         } else {
             changeActiveProgression(currentFragment);
@@ -98,8 +94,6 @@ public class RegisterActivity extends AppCompatActivity {
             switchPreviousFragment();
             return true;
         }
-
         return super.onKeyDown(keyCode, event);
     }
-
 }

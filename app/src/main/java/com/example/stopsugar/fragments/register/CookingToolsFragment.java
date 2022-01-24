@@ -1,5 +1,6 @@
 package com.example.stopsugar.fragments.register;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,9 +71,9 @@ public class CookingToolsFragment extends Fragment {
     private void changeColor() {
         for (int i = 0; i < cookingTools.length; i++) {
             if (cookingTools[i]) {
-                cookingToolsViews[i].setColorFilter(R.color.highlight);
+                cookingToolsViews[i].setColorFilter(Color.GREEN);
             } else {
-                cookingToolsViews[i].setColorFilter(R.color.black);
+                cookingToolsViews[i].setColorFilter(Color.BLACK);
             }
         }
     }

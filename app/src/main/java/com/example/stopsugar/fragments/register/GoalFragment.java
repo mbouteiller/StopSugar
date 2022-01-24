@@ -1,6 +1,8 @@
 package com.example.stopsugar.fragments.register;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,34 +36,38 @@ public class GoalFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_goal, container, false);
 
         firstCard = view.findViewById(R.id.choice_1);
-        firstCard.setOnClickListener(view12 -> {
+        firstCard.setOnClickListener(view1 -> {
             goalChoice = 1;
-            changeColorCard();
+            changeColorCardChoice1();
         });
 
         secondCard = view.findViewById(R.id.choice_2);
         secondCard.setOnClickListener(view1 -> {
             goalChoice = 2;
-            changeColorCard();
+            changeColorCardChoice2();
         });
 
-        changeColorCard();
+        if (goalChoice == 1) {
+            changeColorCardChoice1();
+        } else if (goalChoice == 2) {
+            changeColorCardChoice2();
+        }
 
         return view;
     }
 
-    private void changeColorCard() {
-        if (goalChoice == 1) {
-            nextButton.setEnabled(true);
-            firstCard.setCardBackgroundColor(R.color.app_green);
-            secondCard.setCardBackgroundColor(R.color.black);
-        }
+    @SuppressLint("ResourceAsColor")
+    private void changeColorCardChoice1() {
+        nextButton.setEnabled(true);
+        firstCard.setCardBackgroundColor(Color.GREEN);
+        secondCard.setCardBackgroundColor(Color.WHITE);
+    }
 
-        if (goalChoice == 2) {
-            nextButton.setEnabled(true);
-            secondCard.setCardBackgroundColor(R.color.app_green);
-            firstCard.setCardBackgroundColor(R.color.black);
-        }
+    @SuppressLint("ResourceAsColor")
+    private void changeColorCardChoice2() {
+        nextButton.setEnabled(true);
+        secondCard.setCardBackgroundColor(Color.GREEN);
+        firstCard.setCardBackgroundColor(Color.WHITE);
     }
 
     public void setNextButton(Button button) {
