@@ -1,10 +1,13 @@
 package com.example.stopsugar.fragments;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +24,6 @@ import java.util.ArrayList;
 public class RecipeFragment extends Fragment {
 
     private View rootView;
-    private Button buttonChoco;
 
     private RecyclerView recyclerViewDeserts, recyclerViewStarters, recyclerViewMeals;
     ArrayList<String> deserts, meals, starters;
@@ -30,15 +32,10 @@ public class RecipeFragment extends Fragment {
     RecipeAdapter recipeAdapterDeserts, recipeAdapterMeals, recipeAdapterStarters;
     LinearLayoutManager HorizontalLayoutDeserts, HorizontalLayoutMeals, HorizontalLayoutStarters;
 
-    SelectRecipeFragment selectRecipeFragment = new SelectRecipeFragment();
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_recipes, container, false);
-
-        buttonChoco =rootView.findViewById(R.id.buttonChoco);
-        buttonChoco.setOnClickListener(chocoClick);
 
         recyclerViewStarters = rootView.findViewById(R.id.starterRecycler);
         recyclerViewMeals = rootView.findViewById(R.id.mealRecycler);
@@ -77,20 +74,55 @@ public class RecipeFragment extends Fragment {
         recyclerViewMeals.setAdapter(recipeAdapterMeals);
         recyclerViewDeserts.setAdapter(recipeAdapterDeserts);
 
+        setSearchBarListener();
+
         return rootView;
     }
 
-    public View.OnClickListener chocoClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            selectRecipe();
-        }
-    };
+    private void setSearchBarListener(){
+        EditText searchPrograms = rootView.findViewById(R.id.recipes_search_bar);
+        searchPrograms.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int i, int i1, int i2) {
 
-    public void selectRecipe() {
-        FragmentChangeListener fc = (FragmentChangeListener) getActivity();
-        assert fc != null;
-        fc.replaceFragment(selectRecipeFragment);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+    }
+
+    private void filter(String text) {
+        ArrayList<String> filteredStarter = new ArrayList<>();
+        ArrayList<String> filteredMeal = new ArrayList<>();
+        ArrayList<String> filteredDesert = new ArrayList<>();
+
+        for (String starter : starters) {
+            if (starter.toLowerCase().contains(text.toLowerCase())) {
+                filteredStarter.add(starter);
+            }
+        }
+        for (String meal : meals) {
+            if (meal.toLowerCase().contains(text.toLowerCase())) {
+                filteredMeal.add(meal);
+            }
+        }
+        for (String desert : deserts) {
+            if (desert.toLowerCase().contains(text.toLowerCase())) {
+                filteredDesert.add(desert);
+            }
+        }
+        recipeAdapterStarters.filterList(filteredStarter);
+        recipeAdapterMeals.filterList(filteredMeal);
+        recipeAdapterDeserts.filterList(filteredDesert);
+
     }
 
     public void AddItemsToRecyclerViewArrayList()

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,6 +50,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
                     if (textView.getText() == "Mousse au chocolat") {
                         AppCompatActivity activity = (AppCompatActivity) view.getContext();
                         activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, selectRecipeFragment).commit();
+                    } else {
+                        Toast.makeText(view.getContext(), "Ceci n'est pas une mousse au chocolat", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -103,5 +106,10 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     public int getItemCount()
     {
         return list.size();
+    }
+
+    public void filterList(List<String> filteredList) {
+        list = filteredList;
+        notifyDataSetChanged();
     }
 }

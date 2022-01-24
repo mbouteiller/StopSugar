@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.stopsugar.FragmentChangeListener;
 import com.example.stopsugar.R;
 import com.example.stopsugar.fragments.SelectedRecipeManagement.IngredientsAdapter;
 import com.example.stopsugar.fragments.SelectedRecipeManagement.PreparationAdapter;
@@ -23,10 +26,15 @@ public class SelectRecipeFragment extends Fragment {
 
     private View rootView;
 
+    RecipeFragment recipeFragment = new RecipeFragment();
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_recipe, container, false);
+
+        ImageView returnButton = rootView.findViewById(R.id.recipe_return);
+        returnButton.setOnClickListener(returnClick);
 
         configureRecyclerView();
         return rootView;
@@ -54,5 +62,18 @@ public class SelectRecipeFragment extends Fragment {
         recyclerViewPreparation.setLayoutManager(new LinearLayoutManager(this.getContext()));
         PreparationAdapter preparationAdapter = new PreparationAdapter(this.getContext(), steps);
         recyclerViewPreparation.setAdapter(preparationAdapter);
+    }
+
+    public View.OnClickListener returnClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            returnToRecipeSelection();
+        }
+    };
+
+    public void returnToRecipeSelection() {
+        FragmentChangeListener fc = (FragmentChangeListener) getActivity();
+        assert fc != null;
+        fc.replaceFragment(recipeFragment);
     }
 }
