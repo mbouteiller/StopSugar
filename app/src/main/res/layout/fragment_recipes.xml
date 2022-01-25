@@ -15,7 +15,7 @@
         android:background="@drawable/search_bar_bg"
         android:drawableStart="@drawable/search_icon"
         android:drawableTint="#1C1C1C"
-        android:hint="Entrez un nom de recette"
+        android:hint="Entrez un nom de recette ..."
         android:inputType="text"
         android:textColor="#1C1C1C"
         app:layout_constraintEnd_toEndOf="parent"
