@@ -1,9 +1,12 @@
 package com.example.stopsugar.fragments;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -22,17 +25,23 @@ public class InfoFragment extends Fragment {
 
     private View rootView;
 
+    InfoAdapter infoAdapter;
+
+    ArrayList<String> infos;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_info, container, false);
 
         configureRecyclerView();
+
+        setSearchBarListener();
         return rootView;
     }
 
     private void configureRecyclerView() {
-        ArrayList<String> infos = new ArrayList<>();
+        infos = new ArrayList<>();
         infos.add("Types de sucres");
         infos.add("Alternatives au sucre raffiné");
         infos.add("Les types de stévia");
@@ -42,7 +51,38 @@ public class InfoFragment extends Fragment {
 
         RecyclerView recyclerViewInfos = rootView.findViewById(R.id.infosRecycler);
         recyclerViewInfos.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        InfoAdapter infoAdapter = new InfoAdapter(this.getContext(), infos);
+        infoAdapter = new InfoAdapter(this.getContext(), infos);
         recyclerViewInfos.setAdapter(infoAdapter);
+    }
+
+    private void setSearchBarListener(){
+        EditText searchPrograms = rootView.findViewById(R.id.info_search_bar);
+        searchPrograms.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+    }
+
+    private void filter(String text) {
+        ArrayList<String> filteredInfos = new ArrayList<>();
+
+        for (String info : infos) {
+            if (info.toLowerCase().contains(text.toLowerCase())) {
+                filteredInfos.add(info);
+            }
+        }
+        infoAdapter.filterList(filteredInfos);
     }
 }

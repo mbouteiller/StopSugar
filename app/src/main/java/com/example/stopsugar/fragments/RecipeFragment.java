@@ -122,7 +122,6 @@ public class RecipeFragment extends Fragment {
         recipeAdapterStarters.filterList(filteredStarter);
         recipeAdapterMeals.filterList(filteredMeal);
         recipeAdapterDeserts.filterList(filteredDesert);
-
     }
 
     public void AddItemsToRecyclerViewArrayList()
