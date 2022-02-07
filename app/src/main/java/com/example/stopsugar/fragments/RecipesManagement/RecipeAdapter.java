@@ -50,8 +50,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
                     if (textView.getText() == "Mousse au chocolat") {
                         AppCompatActivity activity = (AppCompatActivity) view.getContext();
                         activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, selectRecipeFragment).commit();
-                    } else {
-                        Toast.makeText(view.getContext(), "Ceci n'est pas une mousse au chocolat", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

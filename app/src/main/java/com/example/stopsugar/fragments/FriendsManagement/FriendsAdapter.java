@@ -41,8 +41,6 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
                     if (textView.getText() == "Michelle") {
                         button.setBackgroundColor(Color.parseColor("#FFFFFF"));
                         button.setText("envoyé");
-                    } else {
-                        Toast.makeText(view.getContext(), "Ce n'est pas Michelle", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

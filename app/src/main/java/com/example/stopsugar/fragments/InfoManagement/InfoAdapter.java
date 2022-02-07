@@ -42,8 +42,6 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
                     if (textView.getText() == "Alternatives au sucre raffiné") {
                         AppCompatActivity activity = (AppCompatActivity) view.getContext();
                         activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, selectInfoFragment).commit();
-                    } else {
-                        Toast.makeText(view.getContext(), "Mauvaise info", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
