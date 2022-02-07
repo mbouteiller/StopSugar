@@ -36,7 +36,7 @@ public class HomeFragment extends Fragment {
     FoodConsommationAdapter foodConsommationAdapter;
     FoodListAdapter foodListAdapter;
 
-    ArrayList<String> foodsConsommation;
+    ArrayList<String> foodsConsommation = new ArrayList<>();
     ArrayList<String> foodsList;
 
     @Override
@@ -67,7 +67,7 @@ public class HomeFragment extends Fragment {
         popup.setView(popupView);
         AlertDialog popUp = popup.create();
 
-        RecyclerView recyclerView = (RecyclerView) popupView.findViewById(R.id.foodSearchRecycler);
+        RecyclerView recyclerView = popupView.findViewById(R.id.foodSearchRecycler);
         foodsList = new ArrayList<>();
         foodsList.add("Banane");
         foodsList.add("Fraises");
@@ -75,7 +75,10 @@ public class HomeFragment extends Fragment {
         foodsList.add("Gratin de pâtes");
         foodsList.add("Avocat");
         foodsList.add("Burger");
-        foodListAdapter = new FoodListAdapter(this.getContext(),foodsList, this, popUp);
+
+        if (foodListAdapter == null)
+            foodListAdapter = new FoodListAdapter(this.getContext(),foodsList, this, popUp);
+
         recyclerView.setAdapter(foodListAdapter);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(popupView.getContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -123,11 +126,10 @@ public class HomeFragment extends Fragment {
 
 
     private void configureRecyclerView() {
-        foodsConsommation = new ArrayList<>();
-
         RecyclerView recyclerViewFood = rootView.findViewById(R.id.foodRecycler);
         recyclerViewFood.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        foodConsommationAdapter = new FoodConsommationAdapter(this.getContext(), foodsConsommation, this);
+        if (foodConsommationAdapter == null)
+            foodConsommationAdapter = new FoodConsommationAdapter(this.getContext(), foodsConsommation, this);
         recyclerViewFood.setAdapter(foodConsommationAdapter);
     }
 

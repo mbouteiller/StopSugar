@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 
 import com.example.stopsugar.FragmentChangeListener;
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
 
     private MaterialToolbar materialToolbar;
     private NavigationBarView navigationBarView;
+    private Fragment actualFragment;
 
 //  Fragments
     HomeFragment homeFragment = new HomeFragment();
@@ -80,11 +83,26 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
     }
 
     private void switchFragment(Fragment fragment) {
+        actualFragment = fragment;
         this.getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in, R.anim.fade_out).replace(R.id.frame_container, fragment).commit();
     }
 
     @Override
     public void replaceFragment(Fragment fragment) {
         switchFragment(fragment);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+            if (actualFragment.equals(homeFragment)) {
+                Intent intent = new Intent(this, MenuActivity.class);
+                startActivity(intent);
+            } else {
+                navigationBarView.setSelectedItemId(R.id.home_button);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
