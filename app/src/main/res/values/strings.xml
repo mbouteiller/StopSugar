@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">StopSugar</string>
+    <string name="accueil_bottom_menu_navigation">Accueil</string>
+    <string name="scan_bottom_menu_navigation">Scan</string>
+    <string name="recettes_bottom_menu_navigation">Recettes</string>
+    <string name="infos_bottom_menu_navigation">Infos</string>
+    <string name="amis_bottom_menu_navigation">Amis</string>
+    <string name="logo_content_description">logo</string>
+    <string name="menu_title">Bienvenue dans Stop Sugar</string>
+    <string name="register_button_text">S\'inscrire</string>
+    <string name="login_button_text">Se connecter</string>
+    <string name="boutton_suivant">Suivant</string>
+    <string name="faisons_connaissance">Faisons connaissance !</string>
+    <string name="r_duire_ma_consommation_de_sucres_ajout_s">Réduire ma consommation de sucres ajoutés</string>
+    <string name="stopper_ma_consommation_de_sucres_ajout_s">Stopper ma consommation de sucres ajoutés</string>
+    <string name="quel_est_ton_objectif">Quel est ton objectif ?</string>
+    <string name="as_tu_un_r_gime_particulier">As-tu un régime particulier ?</string>
+    <string name="y_a_t_il_des_aliments_que_tu_n_aimes_pas">Y\'a-t-il des aliments que tu n\'aimes pas ?</string>
+    <string name="quels_sont_vos_quipements_de_cuisine">Quels sont vos équipements de cuisine ?</string>
+    <string name="alternative_sugar">On entend souvent parler du miel comme l’aliment phare pour remplacer le traditionnel sucre blanc dans nos assiettes. Il possède effectivement l’avantage de contenir des minéraux (magnésium, calcium, potassium, fer) et des vitamines (B et C), même si la teneur reste faible. Le miel est également moins calorique que le sucre et possède un pouvoir sucrant 30% à 40% supérieur au sucre de table , ce qui permet de consommer des quantités plus faibles. Enfin, le miel contient des antioxydants, des molécules qui aident à prévenir le cancer et les maladies dégénératives. Plus le miel est foncé, plus il est riche en antioxydants ! Cependant, le pouvoir antioxydant de la plupart des miels reste relativement faible par rapport à celui des fruits et légumes.</string>
 </resources>
